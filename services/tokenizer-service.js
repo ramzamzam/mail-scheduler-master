@@ -1,22 +1,27 @@
 "use strict";
 
-const request = require('request-promise');
+const request = require('./request');
 
 class TokenizerService {
-    constructor(uri) {
-        this.uri = uri;
+    constructor(ip, port) {
+        this.ip = ip;
+        this.port = port;
     }
 
     getTokens(text) {
         const options = {
             method: 'POST',
-            uri: `${this.uri}/tokens`,
-            body: {
-                text
+            ip  : this.ip,
+            port : this.port,
+            path : '/tokens',
+            headers : {
+                "Content-Type" : "application/json"
             },
-            json: true
+            data: {
+                text
+            }
         };
-        return request(options);
+        return request(options).then(JSON.parse);
     }
 }
 

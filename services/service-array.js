@@ -7,7 +7,7 @@ class ServiceArray {
     }
 
     push(service) {
-        if(!this.array.find(s => s.uri === service.uri)) {
+        if(!this.array.find(s => s.ip === service.ip && s.port === service.port)) {
             this.array.push(service);
         }
     }

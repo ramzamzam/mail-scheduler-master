@@ -7,7 +7,9 @@ const tokenizers = new services.ServiceArray();
 
 router.get('/:type', (req, res) => {
     const {type} = req.params;
-    const newServiceAddress = req.protocol + '://' +req.headers.host;
+    const service_ip = req.connection.remoteAddress;
+    // console.log(req.headers);
+    const service_port = req.header('x-port');
     let servicesStorage;
     let serviceClass;
     if(type === 'sender') {
@@ -20,7 +22,7 @@ router.get('/:type', (req, res) => {
     }
 
     if(servicesStorage && serviceClass) {
-        servicesStorage.push(new serviceClass(newServiceAddress));
+        servicesStorage.push(new serviceClass(service_ip, service_port));
         return res.status(200).end();
     } else {
         return res.status(400).end('Unknown service type');

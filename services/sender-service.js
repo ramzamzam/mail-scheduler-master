@@ -1,21 +1,27 @@
 "use strict";
 
-const request = require('request-promise');
+const request = require('./request');
 
 class SenderService {
-    constructor(uri) {
-        this.uri = uri;
+    constructor(ip, port) {
+        this.ip = ip;
+        this.port  = port;
+        console.log(`new service on ${ip} - ${port}`);
     }
 
     sendMessage(email, text) {
         const options = {
             method: 'POST',
-            uri: `${this.uri}/send`,
-            body: {
-                email,
-                text
+            ip  : this.ip,
+            port : this.port,
+            path : '/send',
+            headers : {
+                "Content-Type" : "application/json"
             },
-            json: true
+            data: {
+                text,
+                email
+            }
         };
         return request(options);
     }
