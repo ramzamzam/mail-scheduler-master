@@ -6,9 +6,10 @@ class TokenizerService {
     constructor(ip, port) {
         this.ip = ip;
         this.port = port;
+        console.log(`new tokenizer service on ${ip} - ${port}`);
     }
 
-    getTokens(text) {
+    updateTokens(text) {
         const options = {
             method: 'POST',
             ip  : this.ip,
@@ -21,7 +22,7 @@ class TokenizerService {
                 text
             }
         };
-        return request(options).then(JSON.parse);
+        return request(options);
     }
 }
 

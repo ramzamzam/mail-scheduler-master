@@ -1,3 +1,10 @@
 {
-  "PORT" : 3002
+  "PORT": 3002,
+  "db": {
+    "host": "127.0.0.1",
+    "user": "postgres",
+    "port": "5432",
+    "database": "messages",
+    "password": "1111"
+  }
 }

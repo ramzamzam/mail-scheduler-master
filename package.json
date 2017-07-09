@@ -12,6 +12,8 @@
     "body-parser": "^1.17.2",
     "collections": "^5.0.6",
     "express": "^4.15.3",
+    "node-schedule": "^1.2.3",
+    "pg-promise": "^6.3.1",
     "request": "^2.81.0",
     "request-ip": "^2.0.2",
     "request-promise": "^4.2.1"

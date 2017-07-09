@@ -6,7 +6,7 @@ class SenderService {
     constructor(ip, port) {
         this.ip = ip;
         this.port  = port;
-        console.log(`new service on ${ip} - ${port}`);
+        console.log(`new sender service on ${ip} - ${port}`);
     }
 
     sendMessage(email, text) {
