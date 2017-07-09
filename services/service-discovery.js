@@ -5,6 +5,9 @@ const services = require('./index');
 const senders = new services.ServiceArray();
 const tokenizers = new services.ServiceArray();
 
+/**
+ * API endpoint for registering services
+ */
 router.get('/:type', (req, res) => {
     const {type} = req.params;
     const service_ip = req.connection.remoteAddress;

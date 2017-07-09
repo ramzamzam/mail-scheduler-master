@@ -2,6 +2,9 @@
 
 const request = require('./../lib/request');
 
+/**
+ * Provides easy access to sender agent API
+ */
 class SenderService {
     constructor(ip, port) {
         this.ip = ip;

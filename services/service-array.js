@@ -1,6 +1,11 @@
 "use strict";
 const EventEmitter = require('events').EventEmitter;
 
+/**
+ * Class for managing services
+ * Provides Iterator-like interface for distributing load
+ * on the services
+ */
 class ServiceArray {
     constructor() {
         this.array = [];
@@ -8,6 +13,12 @@ class ServiceArray {
         this.notifications = new EventEmitter();
     }
 
+    /**
+     * Adds service to list
+     * Notifies subscribers on first added service
+     *
+     * @param service {SenderService | TokenizerService} service instance
+     */
     push(service) {
         if(!this.array.find(s => s.ip === service.ip && s.port === service.port)) {
             this.array.push(service);
@@ -18,12 +29,19 @@ class ServiceArray {
         }
     }
 
+    /**
+     * Removes giver service from services list
+     * @param service {SenderService | TokenizerService} service instance
+     */
     remove(service) {
-        // const serviceIndex = this.array.findIndex(s => s.ip === service.ip && s.port === service.port);
         const serviceIndex = this.array.findIndex(s => s === service);
         this.array.splice(serviceIndex, 1);
     }
 
+    /**
+     * Iterates over services
+     * @returns {SenderService | TokenizerService}
+     */
     next() {
         if(this.array.length === 0) return null;
         if(this.current < this.array.length) {

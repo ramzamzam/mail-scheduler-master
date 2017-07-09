@@ -2,6 +2,9 @@
 
 const request = require('./../lib/request');
 
+/**
+ * Provides easy access to tokenizer API
+ */
 class TokenizerService {
     constructor(ip, port) {
         this.ip = ip;
