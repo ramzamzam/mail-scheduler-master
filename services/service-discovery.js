@@ -1,6 +1,6 @@
 "use strict";
 const router = require('express').Router();
-const services = require('./services');
+const services = require('./index');
 
 const senders = new services.ServiceArray();
 const tokenizers = new services.ServiceArray();
@@ -8,7 +8,6 @@ const tokenizers = new services.ServiceArray();
 router.get('/:type', (req, res) => {
     const {type} = req.params;
     const service_ip = req.connection.remoteAddress;
-    // console.log(req.headers);
     const service_port = req.header('x-port');
     let servicesStorage;
     let serviceClass;
