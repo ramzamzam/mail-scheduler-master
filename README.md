@@ -14,5 +14,20 @@ and send requests to it (same for tokenizer and sending agent nodes)
 
 If node is unreachable at some moment, master removes it from nodes list.
 
-Master configuraition file contains database connection information and  port, on which it will be run 
+Master configuraition file:
+
+```
+{
+  "PORT": 3002,
+  "db": {
+    "host": "127.0.0.1",
+    "user": "postgres",
+    "port": "5432",
+    "database": "messages",
+    "password": "1111"
+  }
+}
+```
+
+Contains database connection information and  port, on which it will be run 
 (same port should be stated in the tokenizer and sending agent config files).
