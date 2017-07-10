@@ -1,6 +1,6 @@
 Main server
 Handles 2 requests:
-- POST /message/:email/:datetime - shedules message delivery
+- POST /message/:email/:datetime - shedules message delivery (message text should be passed in request body)
 - GET /tokens/limit? - retrieve 10 (or limit) most used tokens with their count
 
 Manages 2 types of services(nodes):
