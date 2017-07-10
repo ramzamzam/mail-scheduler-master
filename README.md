@@ -31,3 +31,5 @@ Master configuraition file:
 
 Contains database connection information and  port, on which it will be run 
 (same port should be stated in the tokenizer and sending agent config files).
+
+Used database - PostgreSQL 9.5.7
